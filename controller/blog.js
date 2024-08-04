@@ -36,7 +36,7 @@ export async function AddBlogHandle(req, res) {
             content: content.trim(),
             category: category === 'Custom' ? 'Custom' : finalCategory,
             email: req.user.email,
-            image: req.file ? `/upload/${req.file.filename}` : 'no image',
+            image: req.file ? `/uploads/${req.file.filename}` : 'no image',
             visibility,
             tags: tagsArray,
             author: req.user.FullName,
