@@ -9,6 +9,7 @@ import comment from '../model/comment.model.js';
 export async function AddBlogPageHandler(req, res) {
     return res.render('addBlog', {
         name: req.user.FullName,
+        title: 'addBlog',
     });
 }
 
@@ -35,7 +36,7 @@ export async function AddBlogHandle(req, res) {
             content: content.trim(),
             category: category === 'Custom' ? 'Custom' : finalCategory,
             email: req.user.email,
-            image: req.file ? `/uploads/${req.file.filename}` : 'no image',
+            image: req.file ? `/upload/${req.file.filename}` : 'no image',
             visibility,
             tags: tagsArray,
             author: req.user.FullName,
@@ -60,7 +61,7 @@ export async function ShowAllBlogsHandler(req, res) {
             email: req.user.email,
         });
         // Render the view with the blogs and user's name
-        return res.render('ShowAllBlog', { blogs, name: req.user.FullName });
+        return res.render('ShowAllBlog', { blogs, name: req.user.FullName,title: 'allBlogs' });
     } catch (error) {
         console.error('Error retrieving blogs:', error);
         return res.status(500).json({ error: 'Internal Server Error' });
