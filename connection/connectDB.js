@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
-// const URL = process.env.REMOTE_DATA_BASE_CONNECTING_STRING;
-const URL = process.env.lOCAL_CONNECTING_STRING
+const URL = process.env.REMOTE_DATA_BASE_CONNECTING_STRING;
+// const URL = process.env.lOCAL_CONNECTING_STRING
 
 const connectDB = async () => {
     try {
