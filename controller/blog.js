@@ -59,9 +59,6 @@ export async function ShowAllBlogsHandler(req, res) {
         const blogs = await blog.find({
             email: req.user.email,
         });
-        console.log(req.user)
-        console.log(blogs)
-
         // Render the view with the blogs and user's name
         return res.render('ShowAllBlog', { blogs, name: req.user.FullName });
     } catch (error) {
