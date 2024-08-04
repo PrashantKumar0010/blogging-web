@@ -52,7 +52,7 @@ export async function RegisterPersonHandler(req, res) {
             email,
             password,
         })
-        return res.json({ user: newUser })
+        return res.redirect('/')
     } catch (error) {
         // const { status, message } = handleError(error);
         // res.send({ status, message });
